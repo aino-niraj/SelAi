@@ -1,12 +1,15 @@
 package com.ns.selai.execution.selenium;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -21,6 +24,10 @@ import java.time.format.DateTimeFormatter;
 @Service
 @Slf4j
 public class ScreenshotService {
+	
+
+    private static final Logger log = LoggerFactory.getLogger(BrowserManager.class);
+
 
     @Value("${screenshot.storage.path:./screenshots}")
     private String screenshotBasePath;

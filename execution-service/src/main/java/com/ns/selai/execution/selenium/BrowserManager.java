@@ -1,7 +1,6 @@
 package com.ns.selai.execution.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,6 +8,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -23,8 +24,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * - Headless mode support
  */
 @Component
-@Slf4j
 public class BrowserManager {
+
+    private static final Logger log = LoggerFactory.getLogger(BrowserManager.class);
 
     private final Map<Long, WebDriver> activeDrivers = new ConcurrentHashMap<>();
 

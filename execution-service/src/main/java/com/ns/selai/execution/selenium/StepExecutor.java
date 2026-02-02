@@ -1,14 +1,20 @@
 package com.ns.selai.execution.selenium;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.*;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Executes individual Selenium test steps
@@ -18,8 +24,11 @@ import java.time.Duration;
 @Slf4j
 @RequiredArgsConstructor
 public class StepExecutor {
+	
 
-    private final ScreenshotService screenshotService;
+    private static final Logger log = LoggerFactory.getLogger(BrowserManager.class);
+
+    private ScreenshotService screenshotService;
 
     /**
      * Execute a single test step
